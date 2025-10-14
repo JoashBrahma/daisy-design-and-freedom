@@ -1,0 +1,386 @@
+@mixin background-image($url, $size: cover, $position: top center, $repeat: no-repeat) {
+  background-image: url($url);
+  background-size: $size;
+  background-position: $position;
+  background-repeat: $repeat;
+}
+
+@font-face {
+  font-family: "Josefin Sans Bold";
+  src: url(../assets/fonts/josefin-sans.bold.ttf);
+}
+
+@font-face {
+  font-family: "Josefin Sans Semi-bold";
+  src: url(../assets/fonts/josefin-sans.semibold.ttf);
+}
+
+::-webkit-scrollbar {
+  width: 0.5vmin;
+}
+
+::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+::-webkit-scrollbar-thumb {
+  background: tomato;
+}
+
+$color1: #f5f5f5;
+$color2: #999;
+$color3: #ff6347;
+$color4: #000;
+$bg-color1: #000;
+$bg-color2: #171717;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: auto;
+  font-size: 10px;
+  font-family: "Josefin Sans Bold", sans-serif, system-ui, -apple-system;
+  color: $color1;
+  background-color: $bg-color1;
+  user-select: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $color1;
+}
+
+.common-width-content-container {
+  width: min(100%, 1800px);
+  margin: 0 auto;
+}
+
+header {
+  background-color: $bg-color1;
+  font-size: 1.8rem;
+  padding: 1vmin 2vmin;
+
+  .common-width-content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    .navbar-link {
+      background-color: $bg-color2;
+      padding: 0.5em;
+      border-radius: 0.25em;
+      cursor: pointer;
+    }
+
+    .navbar-link:hover:not(.get-in-touch-link) {
+      a {
+        color: $color3;
+      }
+    }
+
+    .get-in-touch-link {
+      background-color: $color3;
+
+      a {
+        color: $color4;
+      }
+    }
+
+    .get-in-touch-link:hover {
+      background-color: $bg-color2;
+
+      a {
+        color: $color3;
+      }
+    }
+  }
+}
+
+main {
+  section {
+    margin-bottom: 1vmin;
+  }
+
+  .hero-sect {
+    height: 900px;
+
+    .common-width-content-container {
+      height: 100%;
+      @include background-image("../assets/images/hero.png");
+      border-radius: 1vmin;
+      position: relative;
+    }
+
+    .hero__texts {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      right: 5%;
+      display: flex;
+      flex-direction: column;
+
+      .hero__large-text {
+        font-size: 16.8rem;
+        font-family: "Josefin Sans Semi-bold";
+        line-height: 1;
+
+        span:last-child {
+          display: block;
+          text-indent: 2ch;
+        }
+      }
+
+      .hero__small-text-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        font-size: 2.4rem;
+        margin: 1em 0 0 10em;
+
+        .hero__small-text {
+          color: $color2;
+        }
+
+        .hero__learn-more-link {
+          cursor: pointer;
+
+          span {
+            border: 1px solid $color1;
+            padding: 0.25em;
+            border-radius: 50%;
+            background-color: rgba(245, 245, 245, 0.2);
+          }
+        }
+
+        .hero__learn-more-link:hover {
+          color: $color3;
+
+          span {
+            border-color: $color3;
+          }
+        }
+      }
+    }
+  }
+
+  .learn-more-sect {
+    .common-width-content-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1vmin;
+    }
+
+    .learn-more__card {
+      background-color: $bg-color2;
+      font-size: 2rem;
+      padding: 4vmin;
+      border-radius: 1vmin;
+
+      h3 {
+        font-size: 2.4rem;
+        margin-bottom: 0.75em;
+      }
+
+      p {
+        color: $color2;
+        margin-bottom: 2.25em;
+      }
+
+      span {
+        cursor: pointer;
+
+        span {
+          padding: 0.25em;
+          border: 1px solid whitesmoke;
+          border-radius: 50%;
+          background-color: rgba(245, 245, 245, 0.2);
+        }
+      }
+
+      span:hover {
+        color: $color3;
+
+        span {
+          border-color: $color3;
+        }
+      }
+    }
+  }
+
+  .show-numbers-sect {
+    .common-width-content-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 4vmin;
+    }
+
+    .show-numbers__box {
+      p:first-child {
+        color: $color2;
+        font-size: 1.8rem;
+      }
+
+      p:last-child {
+        font-size: 5.4rem;
+      }
+    }
+  }
+
+  .about-sect {
+    height: 600px;
+
+    .common-width-content-container {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1vmin;
+    }
+
+    .about__texts {
+      background-color: $bg-color2;
+      padding: 4vmin;
+      border-radius: 1vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2,
+      h3 {
+        margin-bottom: 1em;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 5.4rem;
+      }
+
+      div {
+        display: flex;
+        gap: 8vmin;
+
+        p {
+          color: rgb(150, 150, 150);
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .about__image {
+      @include background-image("../assets/images/about.png");
+      border-radius: 1vmin;
+    }
+  }
+
+  .advantages-sect {
+    h2 {
+      font-size: 5.4rem;
+      padding: 4vmin;
+    }
+
+    .advantages__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "image1 text1"
+        "image1 text2"
+        "text3 image2"
+        "text4 image2";
+      gap: 2vmin;
+
+      .advantages__image1 {
+        grid-area: image1;
+        @include background-image("../assets/images/advantage1.png");
+      }
+
+      .advantages__text1 {
+        grid-area: text1;
+      }
+
+      .advantages__text2 {
+        grid-area: text2;
+      }
+
+      .advantages__text3 {
+        grid-area: text3;
+      }
+
+      .advantages__text4 {
+        grid-area: text4;
+      }
+
+      .advantages__image2 {
+        grid-area: image2;
+        @include background-image("../assets/images/advantage2.png");
+      }
+
+      .advantages__texts {
+        font-size: 2rem;
+        padding: 4vmin;
+        display: flex;
+        gap: 8vmin;
+        background-color: $bg-color2;
+
+        .advantages__text {
+          h3 {
+            font-size: 2.4rem;
+            margin-bottom: 1em;
+          }
+
+          p {
+            color: $color2;
+          }
+        }
+
+        .advantage__explore {
+          display: flex;
+          align-items: end;
+
+          .advantage__explore-link {
+            white-space: nowrap;
+            cursor: pointer;
+
+            span {
+              padding: 0.25em;
+              border: 1px solid $color1;
+              border-radius: 50%;
+              background-color: rgba(245, 245, 245, 0.2);
+            }
+          }
+
+          .advantage__explore-link:hover {
+            color: $color3;
+
+            span {
+              border-color: $color3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

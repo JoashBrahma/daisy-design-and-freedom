@@ -1,310 +1,412 @@
 @font-face {
-  font-family: "Josefin Sans Bold";
-  src: url(../assets/fonts/josefin-sans.bold.ttf);
-}
-@font-face {
-  font-family: "Josefin Sans Semi-bold";
+  font-family: "Josefin-sans-semibold";
   src: url(../assets/fonts/josefin-sans.semibold.ttf);
 }
-::-webkit-scrollbar {
-  width: 0.5vmin;
-}
-
-::-webkit-scrollbar-track {
-  background: whitesmoke;
-}
-
-::-webkit-scrollbar-thumb {
-  background: tomato;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-html,
-body {
-  width: 100%;
-  height: auto;
+html {
   font-size: 10px;
-  font-family: "Josefin Sans Bold", sans-serif, system-ui, -apple-system;
-  color: #f5f5f5;
-  background-color: #000;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  font-family: "Josefin-sans-semibold", system-ui, -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-li {
-  list-style-type: none;
+body {
+  color: white;
+  background-color: black;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
-  color: #f5f5f5;
 }
 
-.common-width-content-container {
-  width: min(100%, 1800px);
+.content-max-width-wrapper {
+  max-width: 1800px;
   margin: 0 auto;
+  position: relative;
 }
 
 header {
-  background-color: #000;
-  font-size: 1.8rem;
-  padding: 1vmin 2vmin;
-}
-header .common-width-content-container {
+  padding: 1.5rem 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 header .logo {
-  font-size: 2em;
-  cursor: pointer;
+  font-size: 3.2rem;
 }
-header .navbar-links {
+header .navbar ul {
+  list-style-type: none;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 1.5rem;
 }
-header .navbar-links .navbar-link {
-  background-color: #171717;
-  padding: 0.5em;
-  border-radius: 0.25em;
-  cursor: pointer;
+header .navbar ul li .link {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
 }
-header .navbar-links .navbar-link:hover:not(.get-in-touch-link) a {
-  color: #ff6347;
+header .navbar ul li .link:not(.link.get-in-touch) {
+  background-color: #222;
+  display: none;
 }
-header .navbar-links .get-in-touch-link {
-  background-color: #ff6347;
-}
-header .navbar-links .get-in-touch-link a {
-  color: #000;
-}
-header .navbar-links .get-in-touch-link:hover {
-  background-color: #171717;
-}
-header .navbar-links .get-in-touch-link:hover a {
-  color: #ff6347;
+header .navbar ul li .link.get-in-touch {
+  color: black;
+  background-color: tomato;
 }
 
 main section {
-  margin-bottom: 1vmin;
+  padding: 1rem;
 }
-main .hero-sect {
-  height: 900px;
-}
-main .hero-sect .common-width-content-container {
-  height: 100%;
-  background-image: url("../assets/images/hero.png");
+main section.sec1 {
+  height: min(100vh, 900px);
+  background-image: url(../assets/images/hero.png);
   background-size: cover;
-  background-position: top center;
+  background-position: center;
   background-repeat: no-repeat;
-  border-radius: 1vmin;
   position: relative;
 }
-main .hero-sect .hero__texts {
+main section.sec1 .text-wrapper {
   position: absolute;
   bottom: 10%;
-  left: 5%;
-  right: 5%;
+  left: 0;
+  right: 0;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
-main .hero-sect .hero__texts .hero__large-text {
-  font-size: 16.8rem;
-  font-family: "Josefin Sans Semi-bold";
-  line-height: 1;
+main section.sec1 .text-wrapper .subtext-wrapper .hero-text-large {
+  font-size: clamp(5rem, 10vw + 1rem, 14rem);
+  text-transform: uppercase;
 }
-main .hero-sect .hero__texts .hero__large-text span:last-child {
-  display: block;
-  text-indent: 2ch;
-}
-main .hero-sect .hero__texts .hero__small-text-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  font-size: 2.4rem;
-  margin: 1em 0 0 10em;
-}
-main .hero-sect .hero__texts .hero__small-text-container .hero__small-text {
-  color: #999;
-}
-main .hero-sect .hero__texts .hero__small-text-container .hero__learn-more-link {
-  cursor: pointer;
-}
-main .hero-sect .hero__texts .hero__small-text-container .hero__learn-more-link span {
-  border: 1px solid #f5f5f5;
-  padding: 0.25em;
-  border-radius: 50%;
-  background-color: rgba(245, 245, 245, 0.2);
-}
-main .hero-sect .hero__texts .hero__small-text-container .hero__learn-more-link:hover {
-  color: #ff6347;
-}
-main .hero-sect .hero__texts .hero__small-text-container .hero__learn-more-link:hover span {
-  border-color: #ff6347;
-}
-main .learn-more-sect .common-width-content-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1vmin;
-}
-main .learn-more-sect .learn-more__card {
-  background-color: #171717;
+main section.sec1 .text-wrapper .subtext-wrapper div .hero-text-small {
+  max-width: 45rem;
   font-size: 2rem;
-  padding: 4vmin;
-  border-radius: 1vmin;
 }
-main .learn-more-sect .learn-more__card h3 {
-  font-size: 2.4rem;
-  margin-bottom: 0.75em;
+main section.sec1 .text-wrapper .learn-more-link {
+  font-size: 1.8rem;
+  text-transform: uppercase;
 }
-main .learn-more-sect .learn-more__card p {
-  color: #999;
-  margin-bottom: 2.25em;
-}
-main .learn-more-sect .learn-more__card span {
-  cursor: pointer;
-}
-main .learn-more-sect .learn-more__card span span {
-  padding: 0.25em;
-  border: 1px solid whitesmoke;
+main section.sec1 .text-wrapper .learn-more-link .icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  aspect-ratio: 1;
+  border: 1px solid white;
   border-radius: 50%;
-  background-color: rgba(245, 245, 245, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
 }
-main .learn-more-sect .learn-more__card span:hover {
-  color: #ff6347;
+main section.sec2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
 }
-main .learn-more-sect .learn-more__card span:hover span {
-  border-color: #ff6347;
-}
-main .show-numbers-sect .common-width-content-container {
+main section.sec2 .card {
+  background-color: #111;
+  padding: 3rem;
+  border-radius: 1rem;
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
   justify-content: space-between;
-  padding: 4vmin;
 }
-main .show-numbers-sect .show-numbers__box p:first-child {
-  color: #999;
+main section.sec2 .card div .title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+main section.sec2 .card div .description {
+  color: grey;
   font-size: 1.8rem;
 }
-main .show-numbers-sect .show-numbers__box p:last-child {
-  font-size: 5.4rem;
+main section.sec2 .card .learn-more-link {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-main .about-sect {
-  height: 600px;
+main section.sec2 .card .learn-more-link .icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  aspect-ratio: 1;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
 }
-main .about-sect .common-width-content-container {
-  height: 100%;
+main section.sec3 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1vmin;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+  padding-block: 4rem;
 }
-main .about-sect .about__texts {
-  background-color: #171717;
-  padding: 4vmin;
-  border-radius: 1vmin;
+main section.sec3 div {
+  padding: 1rem 3rem;
+}
+main section.sec3 div h2 {
+  color: grey;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+main section.sec3 div p {
+  font-size: 6rem;
+}
+main section.sec4 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
 }
-main .about-sect .about__texts h2,
-main .about-sect .about__texts h3 {
-  margin-bottom: 1em;
+main section.sec4 .image-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  overflow: hidden;
 }
-main .about-sect .about__texts h2 {
+main section.sec4 .image-wrapper img {
+  width: 100%;
+}
+main section.sec4 .text-wrapper {
+  background-color: #111;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+main section.sec4 .text-wrapper .title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+}
+main section.sec4 .text-wrapper .subtext-wrapper .subtitle {
+  font-size: clamp(4rem, 3vw + 1rem, 6rem);
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+}
+main section.sec4 .text-wrapper .subtext-wrapper .description {
+  color: grey;
   font-size: 2rem;
 }
-main .about-sect .about__texts h3 {
-  font-size: 5.4rem;
+main section.sec5 .title {
+  font-size: clamp(3.2rem, 2vw + 1rem, 5rem);
+  text-transform: uppercase;
+  padding: 2rem;
 }
-main .about-sect .about__texts div {
-  display: flex;
-  gap: 8vmin;
-}
-main .about-sect .about__texts div p {
-  color: rgb(150, 150, 150);
-  font-size: 2rem;
-}
-main .about-sect .about__image {
-  background-image: url("../assets/images/about.png");
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-  border-radius: 1vmin;
-}
-main .advantages-sect h2 {
-  font-size: 5.4rem;
-  padding: 4vmin;
-}
-main .advantages-sect .advantages__grid {
+main section.sec5 .image-and-text-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "image1 text1" "image1 text2" "text3 image2" "text4 image2";
-  gap: 2vmin;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
 }
-main .advantages-sect .advantages__grid .advantages__image1 {
-  grid-area: image1;
-  background-image: url("../assets/images/advantage1.png");
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
+main section.sec5 .image-and-text-wrapper .image-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  overflow: hidden;
 }
-main .advantages-sect .advantages__grid .advantages__text1 {
-  grid-area: text1;
+main section.sec5 .image-and-text-wrapper .image-wrapper img {
+  width: 100%;
 }
-main .advantages-sect .advantages__grid .advantages__text2 {
-  grid-area: text2;
+main section.sec5 .image-and-text-wrapper .text-wrapper {
+  background-color: #111;
+  padding: 3rem;
+  border-radius: 1rem;
 }
-main .advantages-sect .advantages__grid .advantages__text3 {
-  grid-area: text3;
-}
-main .advantages-sect .advantages__grid .advantages__text4 {
-  grid-area: text4;
-}
-main .advantages-sect .advantages__grid .advantages__image2 {
-  grid-area: image2;
-  background-image: url("../assets/images/advantage2.png");
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-}
-main .advantages-sect .advantages__grid .advantages__texts {
+main section.sec5 .image-and-text-wrapper .text-wrapper .subtitle {
   font-size: 2rem;
-  padding: 4vmin;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+main section.sec5 .image-and-text-wrapper .text-wrapper .description-wrapper {
   display: flex;
-  gap: 8vmin;
-  background-color: #171717;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
 }
-main .advantages-sect .advantages__grid .advantages__texts .advantages__text h3 {
-  font-size: 2.4rem;
-  margin-bottom: 1em;
+main section.sec5 .image-and-text-wrapper .text-wrapper .description-wrapper .description {
+  font-size: 1.8rem;
+  color: grey;
 }
-main .advantages-sect .advantages__grid .advantages__texts .advantages__text p {
-  color: #999;
-}
-main .advantages-sect .advantages__grid .advantages__texts .advantage__explore {
-  display: flex;
-  align-items: end;
-}
-main .advantages-sect .advantages__grid .advantages__texts .advantage__explore .advantage__explore-link {
+main section.sec5 .image-and-text-wrapper .text-wrapper .description-wrapper .explore-link {
+  font-size: 1.8rem;
+  text-transform: uppercase;
   white-space: nowrap;
-  cursor: pointer;
 }
-main .advantages-sect .advantages__grid .advantages__texts .advantage__explore .advantage__explore-link span {
-  padding: 0.25em;
-  border: 1px solid #f5f5f5;
+main section.sec5 .image-and-text-wrapper .text-wrapper .description-wrapper .explore-link .icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  aspect-ratio: 1;
+  border: 1px solid white;
   border-radius: 50%;
-  background-color: rgba(245, 245, 245, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
 }
-main .advantages-sect .advantages__grid .advantages__texts .advantage__explore .advantage__explore-link:hover {
-  color: #ff6347;
+
+@media (min-width: 425px) {
+  main section.sec3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-main .advantages-sect .advantages__grid .advantages__texts .advantage__explore .advantage__explore-link:hover span {
-  border-color: #ff6347;
+@media (min-width: 768px) {
+  main section.sec1 .text-wrapper {
+    left: 2.5%;
+    right: 2.5%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+  }
+  main section.sec2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  main section.sec2 .card {
+    padding: 4rem;
+  }
+  main section.sec3 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  main section.sec3 div {
+    justify-self: center;
+  }
+  main section.sec4 .text-wrapper {
+    padding: 4rem;
+  }
+  main section.sec4 .text-wrapper .subtext-wrapper .description {
+    -moz-column-count: 2;
+         column-count: 2;
+  }
+  main section.sec5 .image-and-text-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "img-wrapper1 img-wrapper1" "text-wrapper1 text-wrapper2" "img-wrapper2 img-wrapper2" "text-wrapper3 text-wrapper4";
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper {
+    padding: 4rem;
+  }
+  main section.sec5 .image-and-text-wrapper .image-wrapper1 {
+    grid-area: img-wrapper1;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper1 {
+    grid-area: text-wrapper1;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper2 {
+    grid-area: text-wrapper2;
+  }
+  main section.sec5 .image-and-text-wrapper .image-wrapper2 {
+    grid-area: img-wrapper2;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper3 {
+    grid-area: text-wrapper3;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper4 {
+    grid-area: text-wrapper4;
+  }
+}
+@media (min-width: 1024px) {
+  header .navbar ul li .link:not(.link.get-in-touch) {
+    display: list-item;
+  }
+  main section.sec2 .card {
+    padding: 5rem;
+  }
+  main section.sec3 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  main section.sec4 {
+    flex-direction: row-reverse;
+  }
+  main section.sec4 .image-wrapper,
+  main section.sec4 .text-wrapper {
+    width: 50%;
+  }
+  main section.sec4 .image-wrapper img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  main section.sec4 .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem;
+  }
+  main section.sec5 .title {
+    padding-inline: 5rem;
+  }
+  main section.sec5 .image-and-text-wrapper {
+    grid-template-areas: "img-wrapper1 text-wrapper1" "img-wrapper1 text-wrapper2" "text-wrapper3 img-wrapper2" "text-wrapper4 img-wrapper2";
+  }
+  main section.sec5 .image-and-text-wrapper .image-wrapper img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    justify-content: space-between;
+  }
+  main section.sec5 .image-and-text-wrapper .image-wrapper1 {
+    grid-area: img-wrapper1;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper1 {
+    grid-area: text-wrapper1;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper2 {
+    grid-area: text-wrapper2;
+  }
+  main section.sec5 .image-and-text-wrapper .image-wrapper2 {
+    grid-area: img-wrapper2;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper3 {
+    grid-area: text-wrapper3;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper4 {
+    grid-area: text-wrapper4;
+  }
+}
+@media (min-width: 1440px) {
+  main section.sec1 .text-wrapper {
+    left: 8%;
+    right: 8%;
+  }
+  main section.sec1 .text-wrapper .subtext-wrapper div {
+    padding-left: 15rem;
+  }
+  main section.sec2 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  main section.sec2 .card {
+    padding: 6rem;
+  }
+  main section.sec4 .text-wrapper {
+    padding: 6rem;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper {
+    padding: 6rem;
+  }
+  main section.sec5 .image-and-text-wrapper .text-wrapper .description-wrapper {
+    flex-direction: row;
+    align-items: end;
+    gap: 10rem;
+  }
 }/*# sourceMappingURL=style.css.map */
